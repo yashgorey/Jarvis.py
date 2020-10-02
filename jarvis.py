@@ -6,6 +6,8 @@ import webbrowser
 import os
 import smtplib
 from ecapture import ecapture as ec
+import sys 
+import weather_forecast as wf
 
 
 engine = pyttsx3.init('sapi5')
@@ -108,7 +110,17 @@ if __name__ == "__main__":
             speak(f"Ma'am , the time is {strTime}")
 
         elif "camera" in query or "take a photo" in query:
-            ec.capture(0, "Jarvis Camera ", "img.jpg")    
+            ec.capture(0, "Jarvis Camera ", "img.jpg")  
+            
+            
+            
+            
+        elif 'weather' in query:
+           #x=input("Enter the place-")
+            #y=input("Enter the Time(24hr)-")
+            #z=input("Enter the date(Y-m-d)-")
+            wf.forecast(place = 'delhi', time=datetime.datetime.now(), date=datetime.now().strftime('%Y-%m-%d'), forecast="daily")
+            speak('okay')
             
 
         elif 'open code' in query:
